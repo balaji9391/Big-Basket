@@ -1,0 +1,188 @@
+/* ---------------------------- Full-screen Container ---------------------------- */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full viewport height */
+  width: 100vw; /* full viewport width */
+  background: linear-gradient(135deg, #f1f6f5, #a7fdf3); /* gradient background */
+  background-size: cover; /* ensure any background image covers entire screen */
+  background-repeat: no-repeat;
+}
+
+.thankyou-container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("/images/thankyou.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.thankyou-overlay {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+
+  padding: 30px 40px;
+  border-radius: 16px;
+
+  text-align: center;
+  color: white;
+}
+
+.thankyou-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.thankyou-overlay p {
+  font-size: 1.2rem;
+}
+
+/* ---------------------------- Card ---------------------------- */
+.contact-card {
+  background: rgba(255, 255, 255, 0.95); /* slightly transparent for modern effect */
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.contact-card h1 {
+  margin-bottom: 10px;
+  color: #026b98;
+  font-size: 2.2rem;
+}
+
+.contact-card p {
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ---------------------------- Input Fields ---------------------------- */
+.contact-form .input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 12px 12px 0;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  resize: none;
+  background: transparent;
+}
+
+.contact-form label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  color: #aaa;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Floating label effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom: 2px solid #026b98;
+}
+
+.contact-form input:focus + label,
+.contact-form input:not(:placeholder-shown) + label,
+.contact-form textarea:focus + label,
+.contact-form textarea:not(:placeholder-shown) + label {
+  top: -12px;
+  font-size: 0.85rem;
+  color: #026b98;
+}
+
+/* ---------------------------- Button ---------------------------- */
+.submit-btn {
+  background: linear-gradient(90deg, #026b98, #68cbf6);
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------------------- Animations ---------------------------- */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+  .thankyou-overlay {
+    padding: 30px 20px;
+  }
+
+  .thankyou-overlay h1 {
+    font-size: 2.3rem;
+  }
+
+  .thankyou-overlay p {
+    font-size: 1.1rem;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .thankyou-container {
+    padding: 15px;
+  }
+
+  .thankyou-overlay {
+    padding: 25px 18px;
+    border-radius: 16px;
+  }
+
+  .thankyou-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .thankyou-overlay p {
+    font-size: 1rem;
+  }
+}

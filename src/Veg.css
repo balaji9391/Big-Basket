@@ -1,0 +1,151 @@
+.veg-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  justify-items: center;
+}
+
+/* Transparent cards */
+.card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  
+
+  /* 🔥 Transparent background */
+  background: rgba(0, 0, 0, 0.4) !important; 
+  backdrop-filter: blur(6px); /* Glass effect (optional) */
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.image-container {
+  height: 200px;
+  object-fit: cover;
+  
+}
+
+.image-container img {
+  width: 10%;
+  height: 5%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image-container img {
+  transform: scale(1.2);
+}
+
+/* Text white for contrast */
+.card-body,
+.card-body h3,
+.card-body p,
+.card-body h4,
+.category-title,
+.price-tag {
+  color: #fff !important;
+  text-shadow: 0px 1px 3px rgba(56, 55, 55, 0.6); /* makes text readable */
+}
+
+.card-body {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Buttons */
+button {
+  border-radius: 10px;
+  padding: 6px 12px;
+  background: yellow;
+  color: #000; /* keep text dark so it's readable on yellow */
+  font-weight: bold;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .veg-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .veg-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .veg-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .veg-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+}
+
+/* Background video */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  
+}
+
+/* Content stays above video */
+.main-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+.category-banner {
+  width: 200px;               /* make it slightly bigger */
+  height: auto;               /* keep aspect ratio */
+  display: block;
+  margin: 0 auto 25px;        /* center and add spacing */
+  
+  border-radius: 12px;        /* smooth edges */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-banner:hover {
+  transform: scale(1.05);     /* subtle zoom on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}

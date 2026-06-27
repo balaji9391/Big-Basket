@@ -1,0 +1,204 @@
+@font-face {
+  font-family: "Mona Sans";
+  src: url("https://assets.codepen.io/64/Mona-Sans.woff2")
+      format("woff2 supports variations"),
+    url("https://assets.codepen.io/64/Mona-Sans.woff2")
+      format("woff2-variations");
+  font-weight: 100 1000;
+}
+
+@layer properties {
+  @property --bg-position {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 100;
+  }
+  @property --after-blur {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --after-opacity {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+  }
+  @property --before-opacity {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.3;
+  }
+  @property --btn-offset {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+  }
+  @property --btn-scale {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+  }
+}
+
+:root {
+  --btn-bg: hsl(0, 0%, 0%);
+  --btn-border-width: 1.5;
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-cyan: hsl(180, 100%, 50%);
+  --color-blue: hsl(240, 100%, 50%);
+  --color-purple: hsl(270, 100%, 50%);
+  --color-pink: hsl(330, 40%, 70%);
+  --color-red: hsl(0, 100%, 50%);
+  --color-yellow: hsl(60, 100%, 50%);
+  --color-lime: hsl(90, 100%, 75%);
+}
+
+.fancy-btn {
+  all: unset;
+  background: transparent;
+  cursor: pointer;
+  transform: scale(var(--btn-scale));
+  transition: 
+    --bg-position 3s ease, 
+    --after-blur 0.3s ease,
+    --before-opacity 0.3s ease,
+    --btn-offset 0.3s ease,
+    --btn-scale 0.2s cubic-bezier(.76,-0.25,.51,1.13);
+}
+
+.fancy-btn > div {
+  padding: 0.8em 1.2em;
+  background: var(--btn-bg);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 18px;
+  position: relative;
+}
+
+/* Confetti sprinkles around button */
+.confetti {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 0;
+  top: -20px;
+  left: 0;
+}
+
+.confetti::before,
+.confetti::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: sprinkleFall 1.2s infinite ease-out;
+}
+
+/* Multiple colorful sprinkles */
+.confetti::before {
+  background: red;
+  box-shadow: 
+    -20px 0 yellow,
+    20px -10px blue,
+    -30px -15px green,
+    25px -5px orange,
+    -10px -20px purple;
+}
+
+.confetti::after {
+  background: cyan;
+  box-shadow: 
+    15px -8px pink,
+    -25px -12px lime,
+    30px -18px gold,
+    -35px -10px violet;
+  animation-delay: 0.4s;
+}
+
+/* Falling sprinkle animation */
+@keyframes sprinkleFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(60px) rotate(360deg); opacity: 0; }
+}
+
+
+
+
+.fancy-btn > div > span {
+  background: linear-gradient(
+      to right,
+      var(--color-white),
+      var(--color-cyan),
+      var(--color-blue),
+      var(--color-purple),
+      var(--color-pink),
+      var(--color-red),
+      var(--color-yellow),
+      var(--color-lime),
+      var(--color-white)
+    )
+    no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
+    
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    letter-spacing: 0.1ch;
+}
+
+
+.fancy-btn > div:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  filter: blur(calc(var(--after-blur) * 1px));
+  opacity: var(--after-opacity);
+  background: linear-gradient(
+    to right,
+    var(--color-white),
+    var(--color-cyan),
+    var(--color-blue),
+    var(--color-purple),
+    var(--color-pink),
+    var(--color-red),
+    var(--color-yellow),
+    var(--color-lime),
+    var(--color-white)
+  ) no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
+}
+
+.fancy-btn > div:before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--btn-border-width) * -1px);
+  z-index: -1;
+  border-radius: 9px;
+  opacity: var(--before-opacity);
+  background: linear-gradient(
+    to right,
+    var(--color-white),
+    var(--color-cyan),
+    var(--color-blue),
+    var(--color-purple),
+    var(--color-pink),
+    var(--color-red),
+    var(--color-yellow),
+    var(--color-lime),
+    var(--color-white)
+  ) no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
+}
+
+.fancy-btn:hover {
+  --btn-scale: 1.05;
+  --bg-position: 0;
+  --after-blur: 30;
+  --after-opacity: 0.3;
+  --before-opacity: 1;
+}
+
+.fancy-btn:active {
+  --btn-scale: 0.98;
+  --after-blur: 15;
+}

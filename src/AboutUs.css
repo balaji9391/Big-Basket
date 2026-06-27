@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.aboutus {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Hero */
+.aboutus-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #f0fff4, #d4f5e9);
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.hero-text h1 span {
+  color: #27ae60;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #555;
+}
+
+.hero-image img {
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mission */
+.aboutus-mission {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #cd9104, #fde4cf);
+}
+
+.aboutus-mission h2 {
+  font-size: 2.5rem;
+  color: #ff7e29;
+}
+
+.aboutus-mission p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Values */
+.aboutus-values {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #e0f7fa, #fff);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.value-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+}
+
+.value-card img {
+  width: 150px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+/* Team */
+.aboutus-team {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f9f9f9, #ca4a7f);
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  text-align: center;
+  width: 200px;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact */
+.aboutus-contact {
+  text-align: center;
+  padding: 4rem 2rem;
+   background: linear-gradient(135deg, #f9f9f9, #ba386e);
+  color: white;
+}
+
+.aboutus-contact h2 {
+  font-size: 2.5rem;
+}
+
+.aboutus-contact a {
+  color: #4c49fa;
+  text-decoration: underline;
+}
